@@ -2,9 +2,9 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
 
-public class Solution {
+public class UniqueIpReader {
     private static final int NUMBER_OF_LINES_TO_READ = 10000;
-    private static final String IPADDRESS_PATTERN = "\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b";
+    private static final String IPADDRESS_PATTERN = "\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b";
     private static final Pattern pattern = Pattern.compile(IPADDRESS_PATTERN);
     private static final Set<String> AllUniqueIpAddresses = new HashSet<>();
     private static final List<Parser> allParsers = new ArrayList<>();
@@ -25,6 +25,7 @@ public class Solution {
             filePath = bufferedReader.readLine();
             result = true;
         } catch (IOException ioException) {
+            System.out.println("can't read entered file path");
             ioException.printStackTrace();
         }
 
